@@ -10,17 +10,18 @@
     <context:property-placeholder location="classpath:com/dzou/spring/jdbcTemplates/db.properties"/>
 
     <!-- 配置数据源 -->
-    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
-        <property name="user" value="${jdbc.user}"/>
-        <property name="password" value="${jdbc.password}"/>
-        <property name="jdbcUrl" value="${jdbc.jdbcUrl}"/>
-        <property name="driverClass" value="${jdbc.driverClass}"/>
-        <property name="initialPoolSize" value="${jdbc.initPoolSize}"/>
-        <property name="maxPoolSize" value="${jdbc.maxPoolSize}"/>
+    <!--<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">    -->
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${driver}" />
+        <property name="url" value="${url}" />
+        <property name="username" value="${username}" />
+        <property name="password" value="${password}" />
     </bean>
 
     <!-- 配置Spring的 JdbcTemplate -->
-    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"/>
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
 
 
     <!-- -->
