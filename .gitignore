@@ -26,5 +26,5 @@ out
 hs_err_pid*
 
 
-.idea
+#.idea
 desktop.ini
