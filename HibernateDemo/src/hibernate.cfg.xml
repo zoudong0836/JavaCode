@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+
+        <!--配置数据库信息-->
+        <property name="connection.url">jdbc:mysql://localhost:3306/hibernates</property>
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.username">admin</property>
+        <property name="connection.password">admin</property>
+        <property name="dialect">org.hibernate.dialect.MySQL57Dialect</property>
+
+        <!-- 设置数据库创建表的策略 -->
+        <property name="hbm2ddl.auto">update</property>
+        <!-- 显示SQL语句 -->
+        <property name="show_sql">true</property>
+        <!-- 格式化SQL语句 -->
+        <property name="format_sql">true</property>
+
+        <property name="hibernate.current_session_context_class">thread</property>
+
+        <!--配置文件连接到核心文件-->
+        <!--<mapping resource="com/war/hibernate/UserEntity.hbm.xml"/>-->
+
+        <!--<mapping class="com.dzou.oneToOneFK.singleWay.Students" />-->
+        <!--<mapping class="com.dzou.oneToOneFK.singleWay.IdCard" />-->
+
+        <!--<mapping class="com.dzou.oneToOneFK.doubleWay.Students" />-->
+        <!--<mapping class="com.dzou.oneToOneFK.doubleWay.IdCard" />-->
+
+        <!--<mapping class="com.dzou.manyToOneFK.singleWay.Students" />-->
+        <!--<mapping class="com.dzou.manyToOneFK.singleWay.ClassRoom" />-->
+
+        <!--<mapping class="com.dzou.oneToManyFK.singleWay.Students" />-->
+        <!--<mapping class="com.dzou.oneToManyFK.singleWay.ClassRoom" />-->
+
+        <mapping class="com.dzou.manyToOneFK.doubleWay.Students" />
+        <mapping class="com.dzou.manyToOneFK.doubleWay.ClassRoom" />
+
+    </session-factory>
+</hibernate-configuration>
